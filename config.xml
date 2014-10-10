@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "GY86BP8AU6.GY86BP8AU6.com.lesmercenaires.btp38"	
+	version 	= "1.3.4">
+
+	<name>FBTP Isère</name>
+
+	<description>Application FBTP Isère</description>
+
+	<author href="http://www.lesmercenaires.com"
+		email="fabien@lesmercenaires.com">
+		Fabien Gravier
+	</author>
+
+	<gap:platforms>
+		<gap:platform name="android" minVersion="2.1" />
+		<gap:platform name="blackberry" project="widgets"/>
+	</gap:platforms>
+
+	
+	
+	<preference name="android-minSdkVersion" value="5" />
+	<preference name="stay-in-webview" value="false" />
+
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	
+	<!--<gap:splash src="images/splash.png" width="533" height="800"/>
+	<gap:splash src="images/splash_small.png" width="320" height="480" />
+	<gap:splash src="images/splash-retina.png" width="640" height="960"/>-->
+	
+	<icon src="icon.png" />
+	<icon src="icons/ios/icon.png" width="57" height="57" />
+	<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="icons/ios/icon_at_2x.png" width="114" height="114" />
+	
+	<icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<!--
+	36px (ldpi)
+	48px (mdpi)
+	72px (hdpi)
+	96px (xhdpi)
+	-->
+	
+	<gap:splash src="splash.png" />
+	<gap:splash src="splash/ios/Default.png" width="320" height="480" />
+	<gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+	<gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
+	<gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+	<gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+	
+	<gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	
+	
+	<!--	
+	ldpi: small screens are at least 426dp x 320dp
+	mdpi: normal screens are at least 470dp x 320dp
+	hdpi: large screens are at least 640dp x 480dp
+	xlarge screens are at least 960dp x 720dp
+	-->
+	<preference name="detect-data-types" value="false" />
+	<preference name="splash-screen-duration" value="7000" />
+	
+		
+	<access origin="*" />
+	<preference name="disable-cursor" value="true" />
+	<preference name="target-device" value="universal" />
+	
+
+	<!-- sample preference specification -->
+	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>

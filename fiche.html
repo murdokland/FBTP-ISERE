@@ -1,0 +1,368 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>BTP38</title>
+<link href="jquery-mobile/jquery.mobile-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+<script src="phonegap.js"></script>
+
+<script>
+$( document ).bind( "mobileinit", function() {
+    $.mobile.allowCrossDomainPages = true;
+	$.support.cors = true;
+});
+function verif_link(chaine){
+	var Resultat = chaine.substring(0,3);
+	if (Resultat == "www" )
+		{chaine = "http://"+chaine+"" };
+	return chaine;
+	//place = chaine.indexOf("http://",0);
+	
+}
+
+function getParamValue(param,url)
+{
+	var u = url == undefined ? document.location.href : url;
+	var reg = new RegExp('(\\?|&|^)'+param+'=(.*?)(&|$)');
+	matches = u.match(reg);
+	return matches[2] != undefined ? decodeURIComponent(matches[2]).replace(/\+/g,' ') : '';
+}
+function changecss(cat) {
+	if (cat == "CARRELAGE / REVÊTEMENT DE SOLS") { 
+		document.getElementById("successfullStatements_fiche").style.backgroundColor= "#fef5e8";
+	}
+	if (cat == "CHARPENTE") { 
+	    document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f9eae3";
+	}
+	if (cat == "ELECTRICITE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f2edea";
+	}
+	if (cat == "ETANCHEITE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#fdeef2";
+	}
+	if (cat == "GENIE-CLIMATIQUE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#eaf6fd";
+	}
+	if (cat == "ISOLATION") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#fcf9ea";
+	}
+	if (cat == "MAÇONNERIE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#fdeef2";
+	}
+	if (cat == "MENUISERIE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f4f8ec";
+	   //document.getElementById("cadre2").style.backgroundColor= "#79b51c";
+	}
+	if (cat == "METALLERIE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f6eee3";
+	   //document.getElementById("cadre2").style.backgroundColor= "#ab660b";
+	}
+	if (cat == "PEINTURE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f3f2f7";
+	   //document.getElementById("cadre2").style.backgroundColor= "#8e86ac";
+	}
+	if (cat == "PLÂTRERIE") { 
+		document.getElementById("successfullStatements_fiche").style.backgroundColor= "#fef5e8";
+		//document.getElementById("cadre2").style.backgroundColor= "#f29400";
+	}
+	if (cat == "RESEAUX D'ELECTRIFICATION") { 
+	    document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f9eae3";
+		//document.getElementById("cadre2").style.backgroundColor= "#bd1220";
+	}
+	if (cat == "TRAVAUX PUBLICS") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f2edea";
+	   //document.getElementById("cadre2").style.backgroundColor= "#7f5b4e";
+	}
+	if (cat == "VITRERIE") { 
+	   document.getElementById("successfullStatements_fiche").style.backgroundColor= "#f4f6f8";
+	   //document.getElementById("cadre2").style.backgroundColor= "#94a6b0";
+	}
+}
+
+function division_cat(cat){
+	var resultat = cat.indexOf('-');
+	if (resultat != -1){
+		lavaleurdestop = resultat;
+		var newcat = cat.substring(0,lavaleurdestop);
+		return newcat;		
+	}
+	else {
+		return cat;	
+	};
+		
+};
+function espace_tel(letel) {
+	letel= letel.replace(/ /g,"");
+	return letel;
+}
+function test_zone(adresse){
+	var resultat = adresse.indexOf('BP');
+	if (resultat >= 0){
+		var test1 = true;
+		//alert (adresse+"test1="+test1);
+	};
+	resultat = adresse.indexOf('PAE');
+	if (resultat >= 0){
+		var test2 = true;
+		//alert (adresse+"test2="+test2);
+	};
+	resultat = adresse.indexOf('ZA');
+	if (resultat >= 0){
+		var test3 = true;
+		//alert ("adresse+test3="+test3);
+	};
+	resultat = adresse.indexOf('ZAC');
+	if (resultat >= 0){
+		var test4 = true;
+	};
+	resultat = adresse.indexOf('ZI');
+	if (resultat >= 0){
+		var test5 = true;
+	};
+	resultat = adresse.indexOf('ZAE');
+	if (resultat >= 0){
+		var test6 = true;
+	};
+	
+	var resultat = adresse.indexOf('B.P');
+	if (resultat >= 0){
+		var test7 = true;
+		//alert (adresse+"test1="+test1);
+	};
+	resultat = adresse.indexOf('P.A.E');
+	if (resultat >= 0){
+		var test8 = true;
+		//alert (adresse+"test2="+test2);
+	};
+	resultat = adresse.indexOf('Z.A');
+	if (resultat >= 0){
+		var test9 = true;
+		//alert ("adresse+test3="+test3);
+	};
+	resultat = adresse.indexOf('Z.A.C');
+	if (resultat >= 0){
+		var test10 = true;
+	};
+	resultat = adresse.indexOf('Z.I');
+	if (resultat >= 0){
+		var test11 = true;
+	};
+	resultat = adresse.indexOf('Z.A.E');
+	if (resultat >= 0){
+		var test12 = true;
+	};
+	
+	
+	if (test1 || test2 || test3 || test4 || test5 || test6 || test7 || test8 || test9 || test10 || test11 || test12== true){
+		return true;	
+	} else {
+		return false;	
+	};
+}
+
+function google_maps(adresse1,adresse2,adresse3,codepostal,ville){
+	adresse_final = "http://maps.google.com/maps?q=";
+	if (adresse1.length >0){
+		console.log("adresse 1 pas nul");
+		adresse1= adresse1.replace(/''/g,"+");
+		adresse1 = adresse1.replace(/ /g,"+");
+		if (test_zone(adresse1) == false){
+			adresse_final += adresse1 ;
+		};
+		
+	}
+	if (adresse2.length >0){
+		console.log("adresse 2 pas nul");
+		adresse2= adresse2.replace(/''/g,"+");
+		adresse2 = adresse2.replace(/ /g,"+");
+		if (test_zone(adresse2) == false){
+			adresse_final += "+"+adresse2 ;
+		}
+	}
+	if (adresse3.length >0){
+		console.log("adresse 3 pas nul");
+		adresse3= adresse3.replace(/''/g,"+");
+		adresse3 = adresse3.replace(/ /g,"+");
+		if (test_zone(adresse3) == false){
+			adresse_final += "+"+adresse3 ;
+		};
+	}
+	
+	adresse_final += "+"+codepostal ;
+
+	if (ville.length >0){
+		ville = ville.replace(/ /g,"+");
+		ville = ville.replace(/CEDEX/g,"");
+		adresse_final += "+"+ville+"+FRANCE" ;
+	}	
+	
+	return adresse_final; 
+	 
+}
+function google_maps2(adresse1){
+	adresse_final = "http://maps.google.com/maps?q=";
+	if (adresse1.length >0){
+		console.log("adresse 1 pas nul");
+		adresse1= adresse1.replace(/''/g,"+");
+		adresse1 = adresse1.replace(/ /g,"+");
+		if (test_zone(adresse1) == false){
+			adresse_final += adresse1 ;
+		};
+		
+	}
+	return adresse_final; 
+	 
+}
+function google_maps3(adresse,adresse2,adresse3,codepostal,ville){
+	adresse_final = "";
+	if (adresse.length >0){
+		console.log("adresse pas nul");
+		adresse= adresse.replace(/''/g,"+");
+		adresse = adresse.replace(/ /g,"+");
+		if (test_zone(adresse) == false){
+			adresse_final += adresse ;
+		};
+		
+	}
+	if (adresse2.length >0){
+		console.log("adresse pas nul");
+		adresse2= adresse2.replace(/''/g,"+");
+		adress2e = adresse2.replace(/ /g,"+");
+		if (test_zone(adresse2) == false){
+			adresse_final += adresse2 ;
+		};
+		
+	}
+	if (adresse3.length >0){
+		console.log("adresse pas nul");
+		adresse3= adresse3.replace(/''/g,"+");
+		adresse3 = adresse3.replace(/ /g,"+");
+		if (test_zone(adresse3) == false){
+			adresse_final += adresse3 ;
+		};
+		
+	}
+	
+	adresse_final += "+"+codepostal ;
+
+	if (ville.length >0){
+		ville = ville.replace(/ /g,"+");
+		ville = ville.replace(/CEDEX/g,"");
+		adresse_final += "+"+ville+"" ;
+	}	
+	return adresse_final; 
+	 
+}
+function verif(data) {
+	data= data.replace(/''/g,"'");
+	return data;
+}
+function stripslashes(str) {
+    str = str.replace(/\\'/g, '\'');
+    str = str.replace(/\\\\/g, '\\');
+    return str;
+}
+
+$(document).ready(function(){
+/*	var backButton = $('a[data-theme="app-ios"]').filter('[data-rel="back"]');
+    backButton.find('.ui-icon').remove();
+    backButton.append('<div class="ios-tip"><span>&nbsp;</span></div>');*/
+	
+	var cat = getParamValue('cat');
+	cat = division_cat(cat);
+	var id = getParamValue('identifiant');
+	
+	var output = $("#successfullStatements_fiche");
+	var successfullStatements = $("#successfullStatements_fiche"),
+		errors = $("#errors")
+	successfullStatements.append('<br><p align="center">chargement</p>');	
+	
+	
+	$.ajax({
+		url: 'http://btp-appli.com/btp38/fiche.php?id='+id,
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		timeout: 5000,
+		success: function(data, status){
+			output.empty();
+			$.each(data, function(i,item){
+				 var fiche = '<h1>'+stripslashes(item.RAISONSOCIALE)+'</h1>'
+						//fiche += '<img class="imglogo" src="http://btp74.com.linux.oxianet.com/btp74/images/logo/'+identifiantentreprise+item.cleentreprise+'_small.jpg" >'
+						if (item.ADRESSE1.length > 0){fiche += '<p>'+stripslashes(verif(item.ADRESSE1))+'</p>'}
+						if (item.ADRESSE2.length > 0){fiche += '<p>'+stripslashes(verif(item.ADRESSE2))+'</p>'}
+						if (item.ADRESSE3.length > 0){fiche += '<p>'+stripslashes(verif(item.ADRESSE3))+'</p>'}
+						if (item.CODEPOSTAL > 0){fiche += '<p>'+item.CODEPOSTAL+' <strong>'+stripslashes(verif(item.VILLE))+'</strong></p><br>'}
+						
+						// géolocalisation
+						if (((item.ADRESSE1.length)||(item.ADRESSE2.length)||(item.ADRESSE3.length) > 0) && ((item.google_maps.length)==0))
+							{
+								var superadresse = google_maps3(item.ADRESSE1,item.ADRESSE2,item.ADRESSE3,item.CODEPOSTAL,item.VILLE);
+								window.localStorage.setItem("url", superadresse);
+								fiche += '<li><a href="map.html" data-role="button" rel="external">Localiser</a></li>'}
+								
+						if (item.google_maps.length > 0)
+							{
+								var superadresse = google_maps4(item.google_maps);
+								window.localStorage.setItem("url", superadresse);
+								fiche += '<li><a href="map.html" data-role="button" rel="external">Localiser</a></li>'}
+						//
+						
+						 						
+						if ((item.TELEPHONE.length > 0)&&(item.TELEPHONE != " ")){fiche +='<li><a href="tel:'+espace_tel(item.TELEPHONE)+'" data-role="button" rel="external" target="_blank">Tél:'+espace_tel(item.TELEPHONE)+'</a></li>'} 
+						fiche  += ''
+						if ((item.MAIL.length > 0)&&(item.MAIL != " ")){fiche +='<li><a href="mailto:'+item.MAIL+'">'+item.MAIL+'</a></li>'}
+						//if ((item.site_web_ent.length > 0)&&(item.site_web_ent != " ")){fiche +='<li><a href="'+verif_link(item.site_web_ent)+'" rel="external" target="_blank">'+item.site_web_ent+'</a></li>'}
+						fiche  += '<br>'
+						if (item.FAX.length > 0){fiche += '<p><u>Fax:</u> '+item.FAX+'</p>'}
+						if (item.SECTIONGEOGRAPHIQUE.length > 0){fiche +='<p><u>Appartenance géographique:</u> <br>'+verif(item.SECTIONGEOGRAPHIQUE)+'</p>'}
+						fiche += '<br><p><u>ACTIVITES</u></p>'
+						fiche += '<div id="activite"></div>'
+						if (item.SECTIONPROFESSIONNELLE.length > 0){fiche += '<p>'+verif(item.SECTIONPROFESSIONNELLE)+'</p>'}
+						if (item.SECTIONPROFESSIONNELLE2.length > 0){fiche += '<p>'+verif(item.SECTIONPROFESSIONNELLE2)+'</p>'}
+						if (item.SECTIONPROFESSIONNELLE3.length > 0){fiche += '<p>'+verif(item.SECTIONPROFESSIONNELLE3)+'</p>'}
+
+						fiche += '<hr>'
+						if ((item.NOM.length > 0) && (item.PRENOM != null)){fiche += '<h1>'+stripslashes(verif(item.PRENOM))+' '+stripslashes(item.NOM)+'</h1>'}
+//						if (item.libellefonctionentreprise.length > 0) {fiche += '<p>'+verif(item.libellefonctionentreprise)+'</p>'}
+						//if ((item.cfax_ent.length > 0)&&(item.cfax_ent != " ")){fiche += '<br><p><u>Fax:</u> '+item.cfax_ent+'</p><br>'}
+						//if ((item.ctel_ent.length > 0)&&(item.ctel_ent != " ")){fiche += '<li><a href="tel:'+espace_tel(item.ctel_ent)+'" data-role="button" rel="external" target="_blank" >tel:'+espace_tel(item.ctel_ent)+'</a></li>'} 
+						//if ((item.cmail_ent.length > 0)&&(item.cmail_ent != " ")){fiche += '<li><a href="mailto:'+item.cmail_ent+'" data-role="button" rel="external">'+item.cmail_ent+'</a></li>'};
+				 	 output.append(fiche);
+					 changecss(cat);	
+					 output.listview("refresh");
+			});
+		},
+		error: function(request, error){
+			
+			output.text('Problème avec les données.');
+			output.append('Problème avec les données.');
+			 errors.append("<li>"+error.message+" Occured while processing: "+statement+"</li>");
+			//output.text(request.responseText);
+			//errors.append("<li>"+error.message+" Problème avec les données: "+statement+"</li>");
+		}
+	});
+			 
+	
+    
+});
+
+
+</script>
+</head> 
+<body> 
+<div data-role="page" id="page">
+   <div data-role="header" data-id="head1" data-position="fixed" data-theme="c">
+            <h3>Fiche</h3>
+           		<a href="#" data-role="button"  data-rel="back" data-icon="arrow-l" data-theme="b" >Résultats</a>
+           		<a href="recherche.html" data-role="button" rel="external" data-icon="search"  class="ui-btn-right" data-iconpos="notext"></a>
+        </div>
+	<div data-role="content">
+        <div id="successfullStatements_fiche" data-role="listview" ></div>
+		<ul id="errors"></ul>
+	</div>
+</div>
+</body>
+</html>

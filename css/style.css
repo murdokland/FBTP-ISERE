@@ -1,0 +1,257 @@
+@charset "utf-8";
+/* CSS Document */
+
+.background1 {
+/*	background-color:#3333FF;
+	background-image:none;*/
+}
+
+#loading {
+	/*width:120px;*/
+	margin:0 auto;
+}
+
+#successfullStatements_fiche{
+	
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:10px;
+	padding-bottom:15px;
+}
+#successfullStatements_fiche img{
+	/*border: 2px solid #FFF;*/
+
+}
+h1{
+	
+	font-size:20px;
+}
+.color {
+	color:#FFF;
+	margin-left:10px;
+	font-size:14px;
+	padding:3px;
+	
+}
+#cadre {
+	height:25px;
+	margin-right:15px;
+}
+#cadre2 {
+	height:25px;
+	margin-right:15px;
+	margin-bottom:10px;
+}
+p {
+	margin:0px;
+	margin-top:5px;
+	
+	
+}
+.effectif_off {
+	border-color: #CCC; 
+	border-style: solid; 
+	width:10px;
+	padding:3px	;
+	margin:0;
+	margin-left:2px;
+	color: #FFF; 
+	background-color:#CCC;
+	display:inline;	
+	
+}
+.effectif_on {
+	border-color: #CCC; 
+	border-style: solid; 
+	width:10px;
+	padding:2px	;
+	margin:0;
+	margin-left:2px;
+	color: #CCC; 
+	background-color:#FFF;
+	display:inline;	
+	
+}
+
+h2 {
+	color:#96bf0d;
+	font-size:16px;
+	padding:3px;
+	padding-left:0px;
+}
+#startTest {
+	
+	font-family: Arial, Helvetica, sans-serif;
+	background: #ccc;
+	border-radius: 5px;
+	padding: 8px 8px 3px;
+	text-align: center;
+	margin: 40px auto;
+	width: 150px;
+	box-shadow: 5px 5px 8px #000;
+	color: #FFF;
+	color: #FFF;
+}
+
+#startTest:hover,
+#startTest.running{
+	box-shadow: inset 1px 1px 2px #555;
+	text-shadow: 1px 1px 2px #222;
+	color: #FFF;
+}
+#results {
+	width:180px;
+	margin:0 auto;
+	color: #000;
+	text-align:center;
+	background-color:#FFF;
+	
+}
+#accueil{
+	margin-top:0;
+	background-image:url(../images/background.jpg);
+	background-repeat: no-repeat;
+	background-position:top center;
+	height:692px;
+	
+}
+
+#page{
+	/*width:451px;*/
+	
+}
+
+
+/* BACK BUTTON*/
+/* button background and borders color */
+a[data-theme="app-ios"] {
+    border: none;
+    }
+    a[data-theme="app-ios"] .ui-btn-corner-all {
+        border: 1px solid rgba(0,0,0, 0.4);
+        -webkit-border-radius: 5px;
+        background: -webkit-gradient(linear, left top, left bottom, from(#9fb3cc), to(#5b80ab), color-stop(0.5, #6b8bb2), color-stop(0.51, #597eaa));
+        -webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+        overflow: visible;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        }
+/* shadows and label color */
+a[data-theme="app-ios"].ui-shadow,
+a[data-theme="app-ios"] {
+    box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;
+    background-clip: none; -webkit-background-clip: none; -moz-background-clip: none;
+    color: white;
+    font-weight: bold;
+    top: 5px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0, 0.4);
+    }
+/* make room for the point */
+a[data-theme="app-ios"].ui-btn-left {
+	left: 14px;
+	}
+	a[data-theme="app-ios"].ui-btn-left .ui-btn-corner-all {
+        padding-left: 5px !important;
+		}
+/* position the DIV that contains the point */
+a[data-theme="app-ios"] .ios-tip {
+	float: left;
+	left: -9px;
+	top: 4px;
+	position: absolute;
+	-webkit-transform: scale(.7, 1.0);
+	}
+/* apply gradient */
+a[data-theme="app-ios"] .ios-tip span {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0,0,0, 0.4);
+    border-right: 0;
+    border-top: 0;
+    /* the gradient color mus be slightly different since the point is within the body of the button */
+    background: -webkit-gradient(linear, left top, right bottom, from(#94a8c2), to(#5b80ab), color-stop(0.5, #6b8bb2), color-stop(0.51, #597eaa));
+    border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px;
+    box-shadow: 0 1px 0 rgba(255,255,255, 0.25); -webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.25); -moz-box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	-webkit-transform: rotate(45deg) scale(.9, .9);
+	}
+	
+#actu {
+	background-color:#FFF;
+	text-align:center;
+	font-size:18px;
+	border: 3px solid #194a99;
+	box-shadow: 8px 8px 12px #aaa;
+	padding-left: 1.5em;
+	
+}
+#actu h1{
+	color:#194a99;
+}
+ul {
+	margin-bottom: 1em;
+}
+
+
+/* Listen */
+ul#news {
+	list-style:none;
+	text-align:left;
+	margin-left:0px;
+	padding-left:0px;
+	
+}
+#page{
+	/*width:500px;*/
+}
+.ui-header-fixed, .ui-footer-fixed {
+	left: 0;
+	right: 0;
+	/*width:500px;
+*/	position: fixed;
+	z-index: 1000;
+}
+
+.ui-grid-b {
+	width: 80%;
+	height: 160px;
+	margin: 0 auto;
+}
+
+
+
+/* tablette */
+@media all and (min-width: 641px){
+	/*#successfullStatements_fiche {
+		width:100%;
+	}
+	.ui-content {
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:20px;
+		width:65%;
+	}*/
+}
+@media all and (min-width: 768px){
+	#accueil{
+		margin-top:0;
+		background-image:url(../images/background-tablette.jpg);
+		background-repeat: no-repeat;
+		background-position:top center;
+		height:995px;
+	}
+	.ui-grid-b {
+		width: 70%;
+		height: 160px;
+		margin: 0 auto;
+		margin-top:100px;
+	}
+	#image-accueil {
+		margin-bottom:40px;	
+	}
+
+}
+
+/*.gmap { height: 500px; width: 100%; margin: 0px; padding: 0px }*/
+

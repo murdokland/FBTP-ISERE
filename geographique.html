@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>BTP38</title>
+<link href="jquery-mobile/jquery.mobile-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+<script src="phonegap.js"></script>
+<script>
+$( document ).bind( "mobileinit", function() {
+    $.mobile.allowCrossDomainPages = true;
+	$.support.cors = true;
+});
+
+function getParamValue(param,url)
+{
+	var u = url == undefined ? document.location.href : url;
+	var reg = new RegExp('(\\?|&|^)'+param+'=(.*?)(&|$)');
+	matches = u.match(reg);
+	return matches[2] != undefined ? decodeURIComponent(matches[2]).replace(/\+/g,' ') : '';
+	
+}
+function new_url(geo){
+	cat = getParamValue('cat');
+	window.location.href="listing.html?geo="+geo+"&cat="+cat;
+}
+$(document).ready(function(){
+	var cat; 
+	/*var backButton = $('a[data-theme="app-ios"]').filter('[data-rel="back"]');
+    backButton.find('.ui-icon').remove();
+    backButton.append('<div class="ios-tip"><span>&nbsp;</span></div>');*/
+
+});
+
+</script>
+</head>
+<body>
+    <div data-role="page" id="page">
+    		<div data-role="header" data-id="head1" data-position="fixed" data-theme="c">
+             <h3>Zone géo</h3>
+           		<a href="#" data-role="button"  data-rel="back" data-icon="arrow-l" data-theme="b" >Métiers</a>
+           		<a href="recherche.html" data-role="button" rel="external" data-icon="search"  class="ui-btn-right" data-iconpos="notext"></a>
+       		 </div>
+            <div data-role="content">	
+                <ul data-role="listview">
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('BOURGOIN')"><img src="images/ico/metier1.png" class="ui-li-icon" >BOURGOIN</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('GRENOBLE')"><img src="images/ico/metier1.png" class="ui-li-icon" >GRENOBLE</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('GRESIVAUDAN')"><img src="images/ico/metier3.png" class="ui-li-icon" >GRESIVAUDAN</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('LA TOUR DU PIN')"><img src="images/ico/metier4.png" class="ui-li-icon" >LA TOUR DU PIN</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('MATHEYSINE')"><img src="images/ico/metier5.png" class="ui-li-icon" >MATHEYSINE</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('ROMANCHE')"><img src="images/ico/metier6.png" class="ui-li-icon" >ROMANCHE</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('ROUSSILLON')"><img src="images/ico/metier6.png" class="ui-li-icon" >ROUSSILLON</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('VIENNE')"><img src="images/ico/metier6.png" class="ui-li-icon" >VIENNE</a></li>
+                    <li><a href="#" rel="external" data-transition="slide" onclick="new_url('VOIRON')"><img src="images/ico/metier6.png" class="ui-li-icon" >VOIRON</a></li>
+
+            </ul>		
+        </div>
+    </div>
+    
+    <!--<div id="startTest">START TEST</div>
+    <div id="demoRunning"><img src="images/demo-running.gif" /></div>
+    <div id="results">Run the test to see how your computer does.</div>-->
+	
+    
+</body>
+</html>
+
