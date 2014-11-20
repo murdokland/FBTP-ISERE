@@ -19,7 +19,7 @@
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>
 
-	
+	<preference name="phonegap-version" value="3.5.0" />
 	
 	<preference name="android-minSdkVersion" value="5" />
 	<preference name="stay-in-webview" value="false" />
