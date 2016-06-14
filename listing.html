@@ -67,7 +67,8 @@ $(document).ready(function(){
 		},
 		error: function(request, error){
 			
-			output.text('Problème avec les données.');
+			output.text("Problème avec les données : "+JSON.stringify(request,null,2));
+			
 			//output.append('Problème avec les données.');
 			//output.text(request.responseText);
 			//errors.append("<li>"+error.message+" Problème avec les données: "+statement+"</li>");
