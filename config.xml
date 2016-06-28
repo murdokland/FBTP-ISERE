@@ -2,8 +2,8 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "GY86BP8AU6.GY86BP8AU6.com.lesmercenaires.btp38"	
-	version 	= "1.4"
-	versionCode = "106">
+	version 	= "1.5"
+	versionCode = "107">
 
 	<name>FBTP Isère</name>
 
@@ -89,6 +89,7 @@
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
 
+	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.4" />
 	<!-- sample preference specification -->
 	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
 </widget>

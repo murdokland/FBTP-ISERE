@@ -260,6 +260,21 @@ function google_maps3(adresse,adresse2,adresse3,codepostal,ville){
 	return adresse_final; 
 	 
 }
+function google_maps4(adresse){
+	adresse_final = "";
+	if (adresse.length >0){
+		console.log("adresse pas nul");
+		adresse= adresse.replace(/''/g,"+");
+		adresse = adresse.replace(/ /g,"+");
+		if (test_zone(adresse) == false){
+			adresse_final += adresse ;
+		};
+		
+	}
+	
+	return adresse_final; 
+	 
+}
 function verif(data) {
 	data= data.replace(/''/g,"'");
 	return data;
