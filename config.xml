@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "GY86BP8AU6.GY86BP8AU6.com.lesmercenaires.btp38"	
+	
+	id		= "com.lesmercenaires.btp38"	
 	version 	= "1.5"
 	versionCode = "107">
 
